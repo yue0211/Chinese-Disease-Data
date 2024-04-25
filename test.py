@@ -1,4 +1,4 @@
-import requests,bs4,json,time,schedule,re
+import requests, bs4, re
 
 data = {
     "十四經絡" : {
@@ -73,6 +73,10 @@ Headers = {"Content-Type":"text/html; charset=utf-8","User-Agent":"Mozilla/5.0 (
 
 numbers = [7, 8, 7, 8, 7, 7, 7, 7, 4, 4, 5]
 
+all = set() #所有症狀
+
+
+ 
 
 def GetDiseaseName(options, method):
     
@@ -112,16 +116,16 @@ def GetDiseaseName(options, method):
         for tr in trs:
             disease = tr.find_all("td")[3] # 症狀名稱
             print(disease.text)
-        
-        
+            list = re.split(r'[，、()。\s]\s*', disease.text) # 切割字串得到症狀
+            print(list)  
+            for item in list:
+                all.add(item)
         print("\n-------------------\n")
-        # break
+        #break
 
 
 
-
-
-
+    
 for method, number in zip(data.keys(), numbers):
     # print(method)
     Response = requests.get(url=data[method]["url"], headers=Headers)
@@ -131,5 +135,8 @@ for method, number in zip(data.keys(), numbers):
     options = root.find("select").find_all("option")[number:]
 
     GetDiseaseName(options, method)
+    #break
 
-    # break
+print("所有症狀數： {num}" .format(num = len(all)))
+all.discard('')
+print(all)
