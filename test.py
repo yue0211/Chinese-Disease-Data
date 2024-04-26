@@ -1,4 +1,5 @@
-import requests, bs4, re
+import requests,bs4,re
+from openpyxl import Workbook
 
 data = {
     "十四經絡" : {
@@ -73,10 +74,24 @@ Headers = {"Content-Type":"text/html; charset=utf-8","User-Agent":"Mozilla/5.0 (
 
 numbers = [7, 8, 7, 8, 7, 7, 7, 7, 4, 4, 5]
 
-all = set() #所有症狀
+all_symptom = set() #所有症狀
 
 
- 
+
+
+def write_excel(all_symptom):
+    wb = Workbook()
+    ws = wb.active
+
+    all_symptom.discard('')
+    print("所有症狀數： {num}" .format(num = len(all_symptom)))
+    all_symptom = list(all_symptom)
+    all_symptom = [[x] for x in all_symptom]
+    for row in all_symptom:
+        ws.append(row)
+    wb.save("test.xlsx")
+
+
 
 def GetDiseaseName(options, method):
     
@@ -114,29 +129,36 @@ def GetDiseaseName(options, method):
         trs = table.find_all("tr")[1:] # 把主治去掉
 
         for tr in trs:
-            disease = tr.find_all("td")[3] # 症狀名稱
-            print(disease.text)
-            list = re.split(r'[，、()。\s]\s*', disease.text) # 切割字串得到症狀
-            print(list)  
-            for item in list:
-                all.add(item)
+            symptom_text = tr.find_all("td")[3].text # 症狀名稱
+            print(symptom_text)
+            symptoms = re.split(r'[，、()。\s]\s*', symptom_text) # 切割字串得到症狀
+            print(symptoms)
+            for symptom in symptoms:
+                all_symptom.add(symptom)
+        
+        
         print("\n-------------------\n")
-        #break
+        # break
 
 
 
-    
-for method, number in zip(data.keys(), numbers):
-    # print(method)
-    Response = requests.get(url=data[method]["url"], headers=Headers)
 
-    root = bs4.BeautifulSoup(Response.text,"html.parser")
+if __name__ == '__main__':
 
-    options = root.find("select").find_all("option")[number:]
+    for method, number in zip(data.keys(), numbers):
+        # print(method)
+        Response = requests.get(url=data[method]["url"], headers=Headers)
 
-    GetDiseaseName(options, method)
-    #break
+        root = bs4.BeautifulSoup(Response.text,"html.parser")
 
-print("所有症狀數： {num}" .format(num = len(all)))
-all.discard('')
-print(all)
+        options = root.find("select").find_all("option")[number:]
+
+        GetDiseaseName(options, method)
+
+        # break
+
+    write_excel(all_symptom)
+
+
+
+
