@@ -54,7 +54,7 @@ for symptom in acu_disease:
 print(output_list)
 df = pd.DataFrame(output_list)
 
-with pd.ExcelWriter("disease_match_acu.xlsx") as writer:
+with pd.ExcelWriter("symptom.xlsx") as writer:
     df.to_excel(writer, sheet_name="Sheet1", header=excel_header, index=False)
 
 
@@ -82,6 +82,6 @@ for row in match_acu_cursor:
 
     data[acu] = temp_list
 
-with open("data.json", "w", encoding="utf-8") as f:
+with open("match_acu.json", "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
