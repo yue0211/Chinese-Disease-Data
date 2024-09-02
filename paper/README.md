@@ -11,5 +11,5 @@
 10. [TCMSSD: A comprehensive database focused on syndrome standardization](https://www.sciencedirect.com/science/article/pii/S0944711324001508?via%3Dihub)
 11. [Syndrome Classification Based on Multi-Graph Attention Network](https://ieeexplore.ieee.org/document/10086294)
 12. [Acupuncture and Tuina Knowledge Graph for Ancient Literature of Traditional Chinese Medicine](https://ieeexplore.ieee.org/document/9669508)
-13. [State-element-aware syndrome classification based on hypergraph convolutional network(https://www.sciencedirect.com/science/article/pii/S0957417424002343?via%3Dihub)
+13. [State-element-aware syndrome classification based on hypergraph convolutional network](https://www.sciencedirect.com/science/article/pii/S0957417424002343?via%3Dihub)
 14. [TCM syndrome classification using graph convolutional network](https://www.sciencedirect.com/science/article/abs/pii/S1876382023000641)
