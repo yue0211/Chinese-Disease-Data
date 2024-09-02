@@ -13,3 +13,7 @@
 12. [Acupuncture and Tuina Knowledge Graph for Ancient Literature of Traditional Chinese Medicine](https://ieeexplore.ieee.org/document/9669508)
 13. [State-element-aware syndrome classification based on hypergraph convolutional network](https://www.sciencedirect.com/science/article/pii/S0957417424002343?via%3Dihub)
 14. [TCM syndrome classification using graph convolutional network](https://www.sciencedirect.com/science/article/abs/pii/S1876382023000641)
+15. [結合知識圖譜與文本來訓練專業領域詞彙詞向量](https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=id=%22109NCTU5787006%22.&searchmode=basic)
+16. [奠定於知識本體的中醫症狀詞庫系統](https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=id=%22102CCU00392082%22.&searchmode=basic)
+17. [中醫症狀知識本體的設計與實作]()
+18. [中醫針灸科臨床手冊](https://www1.cgmh.org.tw/intr/intr6/c5c000/BOOK.%E4%B8%AD%E9%86%AB%E9%87%9D%E7%81%B8%E7%A7%91%E8%87%A8%E5%BA%8A%E6%89%8B%E5%86%8A20120818.pdf)
